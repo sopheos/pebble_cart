@@ -1,2 +1,3 @@
-# pebble_cart
+# Pebble/Cart
+
 PHP library for managing shopping carts
