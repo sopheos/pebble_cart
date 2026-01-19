@@ -148,6 +148,11 @@ class CartData extends ModelAbstract
     // Helpers
     // -------------------------------------------------------------------------
 
+    public function getAmount(): float
+    {
+        return $this->total->ttc ?: $this->total->ht;
+    }
+
     /**
      * @param CartItemData $item
      * @return array taxe, mention
