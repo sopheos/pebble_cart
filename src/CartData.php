@@ -7,16 +7,16 @@ use Pebble\Models\ModelAbstract;
 
 class CartData extends ModelAbstract
 {
-    const NO_RATE = 0;
-    const NORMAL_RATE = 1;
-    const INTERMEDIATE_RATE = 2;
-    const REDUCED_RATE = 3;
-    const SPECIAL_RATE = 4;
+    public const NO_RATE = 0;
+    public const NORMAL_RATE = 1;
+    public const INTERMEDIATE_RATE = 2;
+    public const REDUCED_RATE = 3;
+    public const SPECIAL_RATE = 4;
 
-    const DAYS_UNIT = 0;
-    const HOURS_UNIT = 1;
+    public const DAYS_UNIT = 0;
+    public const HOURS_UNIT = 1;
 
-    const RATE_LANG = [
+    public const RATE_LANG = [
         self::NO_RATE => "Taux non-applicable",
         self::NORMAL_RATE => "Taux normal",
         self::INTERMEDIATE_RATE => "Taux intermédiaire",
@@ -24,34 +24,34 @@ class CartData extends ModelAbstract
         self::SPECIAL_RATE => "Taux spécial",
     ];
 
-    const UNITS = [
+    public const UNITS = [
         self::DAYS_UNIT => "jour(s)",
         self::HOURS_UNIT => "heure(s)",
     ];
 
-    const TVA_METRO = [
+    public const TVA_METRO = [
         self::NORMAL_RATE => 0.20,
         self::INTERMEDIATE_RATE => 0.10,
         self::REDUCED_RATE => 0.055,
         self::SPECIAL_RATE => 0.021,
     ];
 
-    const TVA_DOM = [
+    public const TVA_DOM = [
         self::NORMAL_RATE => 0.085,
         self::INTERMEDIATE_RATE => 0.021,
         self::REDUCED_RATE => 0.021,
         self::SPECIAL_RATE => 0.0175,
     ];
 
-    const TVA_EXO = [
+    public const TVA_EXO = [
         self::NORMAL_RATE => 0,
         self::INTERMEDIATE_RATE => 0,
         self::REDUCED_RATE => 0,
         self::SPECIAL_RATE => 0,
     ];
 
-    const EU = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"];
-    const DOM = ["GP", "MQ", "GF", "RE", "YT"];
+    public const EU = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"];
+    public const DOM = ["GP", "MQ", "GF", "RE", "YT"];
 
     public bool $is_btb = false;
     public bool $is_ttc = true;
@@ -82,7 +82,7 @@ class CartData extends ModelAbstract
 
     public function import(array $data = []): static
     {
-        foreach ($data['items'] ?? [] as  $k => $item) {
+        foreach ($data['items'] ?? [] as $k => $item) {
             if (is_array($item)) {
                 $data['items'][$k] = new CartItemData($item);
             }
@@ -228,7 +228,7 @@ class CartData extends ModelAbstract
      * @param string|null $mention
      * @return array
      */
-    private static function taxTableResult(array $table, int $taxe, string $mention = null): array
+    private static function taxTableResult(array $table, int $taxe, ?string $mention = null): array
     {
         return [$table[$taxe] ?? 0, $mention];
     }

@@ -35,12 +35,4 @@ class CartItemData extends ModelAbstract
      * L'article est un service
      */
     public bool $is_service = true;
-
-
-    public function __construct(array $data = [])
-    {
-        if ($data) {
-            $this->import($data);
-        }
-    }
 }
