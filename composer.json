@@ -1,6 +1,6 @@
 {
     "name": "sopheos/pebble_cart",
-    "description": "Cart library",
+    "description": "Shopping cart totals (HT/TTC) with French VAT rules",
     "license": "MIT",
     "require": {
         "php": ">=8.1.0",

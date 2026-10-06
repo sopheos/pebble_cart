@@ -1,6 +1,7 @@
-vendor
+vendor/
+debug/
+composer.lock
+.phpunit.result.cache
 phpunit.phar
 phpunit.phar.asc
 composer.phar
-composer.lock
-.phpunit.result.cache
